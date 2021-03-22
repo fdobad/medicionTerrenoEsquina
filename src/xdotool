@@ -1,0 +1,7 @@
+# get debian xfce
+
+# apt install xdotool
+
+# move mouse programatically
+xdotool getmouselocation
+xdotool mousemove 500 500 click 1

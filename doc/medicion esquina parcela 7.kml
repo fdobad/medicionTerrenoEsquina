@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>medicion esquina parcela 7</name>
+	<gx:CascadingStyle kml:id="__managed_style_27C6E3424A198CC6A2CD">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1BE957E2FF198CC6A2CD">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_001B852E23198CC6A2CD">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1BE957E2FF198CC6A2CD</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_27C6E3424A198CC6A2CD</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="0AB608DD4B198CBCE4E8">
+		<name>esquina sur-pon</name>
+		<LookAt>
+			<longitude>-71.99061626752552</longitude>
+			<latitude>-36.55897782714516</latitude>
+			<altitude>161.0443649841532</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>100.2167063565321</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_001B852E23198CC6A2CD</styleUrl>
+		<Point>
+			<coordinates>-71.99102662055196,-36.5590569336488,160.5969787801728</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B268A029A198CBA5D4D">
+		<name>esquina nor-pon</name>
+		<LookAt>
+			<longitude>-71.99089599613461</longitude>
+			<latitude>-36.55754413362828</latitude>
+			<altitude>161.0573865835852</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000888109352</gx:fovy>
+			<range>227.0419225732621</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_001B852E23198CC6A2CD</styleUrl>
+		<Point>
+			<coordinates>-71.99095095463721,-36.55745899506146,161.2375459095999</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="03BD80053A198CE88F57">
+		<name>esquina CANAL Sur-Ori</name>
+		<visibility>0</visibility>
+		<LookAt>
+			<longitude>-71.99031018270112</longitude>
+			<latitude>-36.5589572370186</latitude>
+			<altitude>161.7681087541034</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>156.8456309458816</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_001B852E23198CC6A2CD</styleUrl>
+		<Point>
+			<coordinates>-71.99007947963798,-36.55910461830111,162.7405690527167</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0897DFE089198CE35B84">
+		<name>esquina CANAL Nor-Ori</name>
+		<visibility>0</visibility>
+		<LookAt>
+			<longitude>-71.98876245134836</longitude>
+			<latitude>-36.55821806327712</latitude>
+			<altitude>164.6818032466418</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000206425585</gx:fovy>
+			<range>421.1968249285565</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_001B852E23198CC6A2CD</styleUrl>
+		<Point>
+			<coordinates>-71.98789853025825,-36.55773200165535,164.4110696853776</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0CB6069F8B198CB759F9">
+		<name>linea poniente</name>
+		<visibility>0</visibility>
+		<LookAt>
+			<longitude>-71.98937192363852</longitude>
+			<latitude>-36.55663744312386</latitude>
+			<altitude>160.6717695104833</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1083.708338116121</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_001B852E23198CC6A2CD</styleUrl>
+		<LineString>
+			<coordinates>
+				-71.99077165589016,-36.55365377948819,161.0858445603868 -71.99102620564962,-36.55906468991,160.4676189787633 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0E4F1FDA79198CC10EC4">
+		<name>linea sur</name>
+		<visibility>0</visibility>
+		<LookAt>
+			<longitude>-71.98942395708173</longitude>
+			<latitude>-36.55895496375966</latitude>
+			<altitude>162.3032221777183</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000000000063</gx:fovy>
+			<range>362.7116759392811</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_001B852E23198CC6A2CD</styleUrl>
+		<LineString>
+			<coordinates>
+				-71.99611910030079,-36.55879265835081,162.8826173569685 -71.98760667355323,-36.55921920926877,162.7771677706012 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0EB46B68CC198D562CFC">
+		<name>correccion norte 22m</name>
+		<LookAt>
+			<longitude>-71.987667007572</longitude>
+			<latitude>-36.5576111306307</latitude>
+			<altitude>164.0585819968839</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000000000061</gx:fovy>
+			<range>625.9938147402863</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_001B852E23198CC6A2CD</styleUrl>
+		<Point>
+			<coordinates>-71.98765077758628,-36.55775453595719,164.4515596662058</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F3B89A8BA198D58E598">
+		<name>correcion sur 22m</name>
+		<LookAt>
+			<longitude>-71.99030003169329</longitude>
+			<latitude>-36.55890064224293</latitude>
+			<altitude>161.5933910461282</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>161.6934692167706</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_001B852E23198CC6A2CD</styleUrl>
+		<Point>
+			<coordinates>-71.98983316238962,-36.55911493239699,162.7464375638</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
