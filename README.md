@@ -39,7 +39,8 @@ Determinar un terreno de 3.5 há circunscrito en los límites impuestos por los 
 
 # Desarrollo
 1. Se encuentraron las lineas que delimitan las parcelas 5, 6 y 7, (adjuntas lineas en kml, se muestran en imágenes sección ubicación)
-2. Se encontraron las esquinas Sur-Poniente y Nor-Poniente usando las lineas encontradas en el punto anterior (la esquina de las parcelas 5,6y7 y el cerco norte con la línea.
+2. Se encontraron las esquinas Sur-Poniente y Nor-Poniente usando las lineas encontradas en el punto anterior (la esquina de las parcelas 5,6y7 y el cerco norte con la línea.  
+
 <img src="./img/detalleEsquinaSurPon.png" alt="ver archivo img/detalleEsquinaSur-Pon.png" style="width : 49%; text-align: left;"/>  <img src="./img/detalleEsquinaNorPon.png" alt="ver archivo img/detalleEsquinaNorPon.png" style="width : 49%; text-align: right;"/>  
 
 3. Se encontraron las esquinas Orientes __-sobre el canal-__ según las medidas tomadas el día sábado 20 de marzo de 2021 15:00 en conjunto entre las partes interesadas. Es decir:
