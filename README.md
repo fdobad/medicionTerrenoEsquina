@@ -1,107 +1,114 @@
-medicion de terreno
+# Servicios topográficos
 
-# Ubicación
-- El terreno está en Chillán, sector reloca antes de Capilla Cox específicamente (al norte del Rio Cato, y al sur de la carretera) en la esquina Sur-Poniente de la parcela 7 del Proyecto de parcelación Santa Raquel, al centro de la figura:  
+- El código está disponible y bajo licencia [ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)](./LICENCE)
+- [check.py](./src/check.py) es un script que mide area con 4 puntos de latitud, longitud en un elipsoide
+- [InteractiveTerrainAreaCalculator.ipynb](./src/InteractiveTerrainAreaCalculator.ipynb) es un jupyterlab notebook que implementa una herramienta interactiva para subir una figura tomada de google earth y ajustar un polígono, en coordenadas cartesianas
 
-<img src="./img/zonaGeneral.png" alt="ver archivo img/zonaGeneral.png" style="width : 80%; align: center;"/>  
+# Resumen Informe v2
 
-- Más en detalle se aprecia que la parcela 7 colinda con al norte con la carretera. Se dibuja la línea divisoria al poniente (izquierda) y la línea divisoria al sur (derecha, extendida al poniente para alinear), para especificar su ubicación y obtener referencias para encontrar las esquinas del terreno:  
+- Bajar en pdf: [Informe1](InformeMediciondeTerreno.pdf), [Informe2](InformeMediciondeTerrenoV2.pdf)
+- Se dirime conflicto con límite oriente de terreno
+- Se muestran y revalidan los resultados del informe anterior de manera didáctica
+- Todas las medidas en metros si no se indica unidad
 
-<img src="./img/lineaPoniente.png" alt="ver archivo img/lineaPoniente.png" style="width : 49%; text-align: left;"/>  <img src="./img/lineaSur.png" alt="ver archivo img/lineaSur.png" style="width : 49%; text-align: right;"/>  
+# Resultados
 
+## Medición Conjunta entre las partes
+El día sábado 20 de marzo de 2021, 15:00. En conjunto entre las partes interesadas se recorrió el perímetro actual del sitio "bordeando el canal", con una huincha de medición:  
 
-# Antecedentes
-- Se encuentra en entredicho el limite oriente del terreno en cuestión, el cual fue adquirido por don Manuel Alejandro Zenteno Arias (actualmente Sucesión Zenteno) a don Jaime Andrés Castillo Rosales, que intermedió entre don Milton Antonio Parra Viscay (padre de los dueños actuales de la parcela 7).
-- El terreno limita hacia el norte y oriente con la parcela 7 (del Proyecto de parcelación Santa Raquel) justamente porque el terreno en cuestión fue vendido como retazo de 3.5 hectáreas de la esquina sur-poniente de ésta, como indica escritura.
-- Este documento de compra venta (adjunta) inscrita en conservador, indica principalmente:
-	- Área: 3,5 há
-	- Deslinde Norte : 321,2m con resto de la propiedad del vendedor
-	- Sur : 154m con parcela 5
-	- Poniente : Parcela 6
-	- Oriente : 351,m con resto de la propiedad del vendedor
-- La documentación de la escritura y el mapa de la parcelación ambos documentos legales inscritos en el conservador, se pueden consultar acá (carpeta doc).
-
-# Objetivo
-Determinar un terreno de 3.5 há circunscrito en los límites impuestos por los cercos actuales, precisando si el limite oriente esta dado por el canal o no.
-
-# Metodología
-## Herramientas
-- Las líneas, cálculos de área y fotos satelitáles se harán usando [Googlearth](https://earth.google.com/web/search/chillan/@-36.5577579,-71.98897207), y se adjuntarán todas las imágenes de los pasos de cálculo (carpeta img)
-- Se verificarán los cálculos del programa anterior, con un script en python de programación propia (carpeta src)
-
-## Pasos
-1. Usar el plano del "Proyecto de parcelación Santa Raquel" inscrito en el conservador de bienes raices para determinar los límites poniente y sur (lineas vertical y horizontal mostradas en sección Ubicación) que determinan la esquina sur-poniente del terreno vendido (EsquinaSurPon en la lista de puntos satelitales).
-2. Usar la cerca actual al norte para determinar la esquina nor-poniente (EsquinaNorPon en la lista de puntos satelitales)
-3. Con las tres lineas delimitorias cerrar el polígono:
-    3.1 Usando las distancias medidas en conjunto
-    3.2 Corrigiendo para delimitar un paralelogramo que circunscriba 3,5 há.
-4. Programar y ejecutar el script de verificación de cálculos usando los puntos marcados
-
-# Desarrollo
-1. Se encuentraron las lineas que delimitan las parcelas 5, 6 y 7, (adjuntas lineas en kml, se muestran en imágenes sección ubicación)
-2. Se encontraron las esquinas Sur-Poniente y Nor-Poniente usando las lineas encontradas en el punto anterior (la esquina de las parcelas 5,6y7 y el cerco norte con la línea.  
-
-<img src="./img/detalleEsquinaSurPon.png" alt="ver archivo img/detalleEsquinaSur-Pon.png" style="width : 49%; text-align: left;"/>  <img src="./img/detalleEsquinaNorPon.png" alt="ver archivo img/detalleEsquinaNorPon.png" style="width : 49%; text-align: right;"/>  
-
-3. Se encontraron las esquinas Orientes __-sobre el canal-__ según las medidas tomadas el día sábado 20 de marzo de 2021 15:00 en conjunto entre las partes interesadas. Es decir:
- - Desde la esquina nor-poniente 275m hacia el oriente sobre la cerca (distancia satelital obtenida entre lo demarcado 274.3)
- - Desde la esquina sur-poniente 85m hacia el oriente sobre la cerca (distancia satelital obtenida entre lo demarcado 84.7)
- - Ejemplo de la construcción del polígono, __notar que la herramienta acumula la distancia__  
+ - Se valida la herramienta puesto que entrega las mismas medidas base obtenidas ese día:
+     - Deslinde Poniente 178m
+     - Deslinde Sur 85m
+     - Deslinde Norte 275m
+ - Se obtiene un area actual de 31.233,36 m² ~ 3,1há, faltan 0,4há según la escritura de compraventa
  
-<img src="./img/encontrandoEsquinaNorOrie.png" alt="ver archivo img/encontrandoEsquinaNorOrie.png" style="width : 49%; text-align: left;"/>  <img src="./img/encontrandoEsquinaNorOrie2.png" alt="ver archivo img/encontrandoEsquinaNorOrie2.png" style="width : 49%; text-align: right;"/>  
+![MedidaConjunta](./img/informe2_MedidaConjunta.png)  
 
-4. Se encuentra el area dada por la herramienta de google earth usando las delimitaciones del canal: 31,379m2; es decir efectivamente falta una franja más allá del canal para completar las 3,5 há (área 0.362há).  
+## Solución recomendada 
+Conforme al informe anterior, para completar las 3,5 há, se recomienda continuar las lineas de los cercos actuales hacia el oriente, avanzando 23m. Así los deslindes modificados son:  
+- Deslinde __Sur__ 108m (85 + __23__)  
+- Deslinde __Norte__ 298m (275 + __23__)  
 
-<img src="./img/areaCANAL.png" alt="ver archivo img/areaCANAL.png" style="width : 80%; text-align: center;"/>  
+![SolucionRecomendada](./img/informe2_SolucionRecomendada.png)
 
-5. Para encontrar la franja faltante de se utilizará un paralelógramo (rombo de lados paralelos o rectángulo inclinado), de manera de simplificar la implementación al considerar que ambas esquinas serán movidas en la misma medida:
-	- altura: 178m (del deslinde poniente) 
-	- Area = base * altura, i.e., 3620m2 = x * 177m, resultando x~22m 
-	- Es decir, el deslinde del terreno al oriente debe considerar alrededor de 22 metros más allá del canal.
-    
-6. Se demarcan los nuevos puntos utilizando los anteriores para mantener la linea con los cercos:  
+Obteniéndose la superficie requerida de 3,5há (35008.45)
 
-<img src="./img/correccionSur22m.png" alt="ver archivo img/correccionSur22m.png" style="width : 49%; text-align: left;"/><img src="./img/correccionNorte22m.png" alt="ver archivo img/correccionNorte22m.png" style="width : 49%; text-align: right;"/>  
+## Solución alternativa
+Si bien hay son infinitas alternativas para generar un polígono de 3,5há. Por simplicidad de implementación, se consideran sólo las que no mueven los cercos actuales, ni cruzan el canal. Luego la alternativa de sentido común -para cuadrar lo más posible la figura, consiste en sólo avanzar el deslinde sur, resultando en una recomendación de modificar:  
+- Deslinde __Sur__ 131m (85 + __46__)  
 
-7. La nueva area encontrada es la siguiente 35,030m2:  
+![SolucionAlternativa](./img/informe2_SolucionAlternativa.png)
 
-<img src="./img/areaCorregida22m.png" alt="ver archivo img/areaCorregida22m.png" style="width : 80%; text-align: center;"/>    
-
-8.Los resultados del script de verificación son los siguientes:
-> Nombre, longitud, latitud  
-> EsquinaSurPon, -71.99102662055196, -36.5590569336488  
-> EsquinaNorPon, -71.99095095463721, -36.55745899506146  
-> CanalSurOri, -71.99007947963798, -36.55910461830111  
-> CanalNorOri, -71.98789853025825, -36.55773200165535  
-> CorreccionNor, -71.98765077758628, -36.55775453595719  
-> CorreccionSur, -71.98983316238962, -36.55911493239699  
-> distancia entre EsquinaSurPon y EsquinaNorPon : 177.80064045279852  
-> distancia entre EsquinaSurPon y CanalSurOri : 84.75592565500348  
-> distancia entre EsquinaSurPon y CorreccionSur : 106.78361829982391  
-> distancia entre EsquinaNorPon y CanalNorOri : 274.3045350562466  
-> distancia entre EsquinaNorPon y CorreccionNor : 296.57328063199293  
-> Area terreno medido 29959.27537273435  
-> Area corregida 35052.750946411565  
-
-Donde se aprecia que la corrección de 22m efectivamente logra circunscribir las 3.5há
+Obteniéndose la superficie requerida de 3,5há (35001.42)
 
 # Conclusión
-
-
-__El deslinde del terreno en entredicho está a 22m más allá del canal para honrar el documento de compraventa original de 3.5há, y no así siguiendo la línea del canal.__  
-
-En particular se debe corregir:  
-
-    - El borde norte de la propiedad es de 297m (275+22)  
-    - El sur es de 107m (85+22)  
-
-Donde se utiliza como base las medidas principales (275 y 85) recogidas en conjunto entre las partes interesadas el día 20 de marzo, la escritura (3.5 há) y las líneas principales de la parcela 7.  
-
-Se adjuntan los puntos satelitales demarcados en el estudio con los cuales se verificaron los cálculos entregados por la herramienta googleearth.  
-
-Finalmente se estima que un estudio en profundidad y en terreno por un topógrafo profesional no cambiará en más de un metro esta estimación (22).
+El deslinde del terreno en entredicho está a 23m más allá del canal para honrar el documento de compraventa original de 3.5há, y no así siguiendo la línea del canal.  
+Alternativamente se puede generar una rectificación equivalente moviendo el deslinde sur en 46m.
 
 Fernando Badilla  
 Ingenierio Civil  
 M.S. Operations Research  
 Universidad de Chile  
+
+# Anexos
+## Detalles de planos
+### Medida Conjunta
+
+    - Area: 31233.36  
+    - Lados: [85.03, 247.56, 274.96, 178.03]  
+    - Vértices: [(0.6315442868393308, -0.14402351755704057),  
+         (85.5786272609407, -3.9621101736671553),  
+         (281.23482636463547, 147.70882955020787),  
+         (7.920442067030843, 177.73478042519938)]  
+         
+### Solución Recomendada
+
+    - Area: 35008.45  
+    - Lados del polígono: [108.0, 246.73, 298.01, 178.03]  
+    - Vertices: [(0.6315442868393308, -0.14402351755704057),  
+         (108.53955034202447, -4.551105504599588),  
+         (304.20804301176537, 145.7447525226361),  
+         (7.920442067030843, 177.73478042519938)]  
+         
+### Solución Alternativa
+
+    - Area: 35001.42  
+    - Lados del polígono: [130.83, 215.25, 274.96, 178.03]  
+    - Vertices: [(0.6315442868393308, -0.14402351755704057),  
+         (131.2999098470501, -6.727918468139406),  
+         (281.23482636463547, 147.70882955020787),  
+         (7.920442067030843, 177.73478042519938)]  
+
+## Planos insuficientes
+### Deslindes de la escritura
+Como se aprecia a continuación, la escritura indica 3,5 há:  
+
+![detalle_deslindes_escritura](./doc/Escritura/detalle_deslindes_escritura.png)  
+
+Para luego continuar con los siguientes deslindes:  
+
+    - Norte: 321.2  
+    - Sur: 154  
+    - Oriente: 351  
+
+![Escritura](./img/informe2_Escritura.png)  
+
+    - Area: 35002.26  
+    - Lados del polígono: [154.0, 351.04, 321.32, 87.59]  
+    - Vertices: [(0.6316884466397772, -0.14404252868571377),  
+         (154.30300909939984, -10.15054354761331),  
+         (209.51873007449916, 336.51651865862505),  
+         (6.785054605092211, 87.22766713826408)]  
+
+
+### Corrección sugerida
+La propuesta enviada de 154, 223.1, 301.2 y 178m son 4há y no 3,5há -como se ve a continuación:
+
+![Topografo](./img/informe2_Topografo.png)
+
+    - Area: 39645.57  
+    - Lados del polígono: [154.03, 220.13, 301.31, 178.03]  
+    - Vertices: [(0.6315442868393308, -0.14402351755704057),  
+         (154.36881259076864, -9.704133912639257),  
+         (307.78040012018243, 148.16420426467457),  
+         (7.920442067030843, 177.73478042519938)]  

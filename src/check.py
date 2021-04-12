@@ -24,8 +24,7 @@
 
             THE SOFTWARE IS PROVIDED "AS IS", WITHOUT EXPRESS OR IMPLIED WARRANTY OF ANY KIND, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 '''
-
-import csv
+import csv,sys
 from numpy import arctan2,sin,cos,array,radians,pi
 
 a= 6378137#equitorial radius in m
@@ -76,7 +75,18 @@ def latlong2planar(alat,alon,blat,blon):
     b = Bearing(alat,alon,blat,blon)
     return [d*cos(pi/2-b),d*sin(pi/2-b)]
 
-def latlon4Area(alat,alon,blat,blon,clat,clon,dlat,dlon):
+def latlon4Area0(alat,alon,blat,blon,clat,clon,dlat,dlon):
+    x1,y1=0,0
+    x2,y2=array([0,0])+array(latlong2planar(alat,alon,blat,blon))
+    x3,y3=array([0,0])+array(latlong2planar(alat,alon,clat,clon))
+    x4,y4=array([0,0])+array(latlong2planar(alat,alon,dlat,dlon))
+    #print('1',x1,y1)
+    #print('2',x2,y2)
+    #print('3',x3,y3)
+    #print('4',x4,y4)
+    return FourGonArea(x1,y1,x2,y2,x3,y3,x4,y4)
+
+def latlon4Area1(alat,alon,blat,blon,clat,clon,dlat,dlon):
     x1,y1=1,1
     x2,y2=array([1,1])+array(latlong2planar(alat,alon,blat,blon))
     x3,y3=array([1,1])+array(latlong2planar(alat,alon,clat,clon))
@@ -87,41 +97,60 @@ def latlon4Area(alat,alon,blat,blon,clat,clon,dlat,dlon):
     #print('4',x4,y4)
     return FourGonArea(x1,y1,x2,y2,x3,y3,x4,y4)
 
-nombre,lat,lon=[],dict(),dict()
-with open('../doc/resumenKML.csv') as csvfile:
-    spamreader = csv.reader(csvfile, delimiter=' ')
-    spamreader.__next__()
-    print('Nombre, longitud, latitud')
-    for row in spamreader:
-        nombre.append(row[0])
-        lon[nombre[-1]]=float(row[1])
-        lat[nombre[-1]]=float(row[2])
-        print(', '.join(row))
+def main():
+    nombre,lat,lon=[],dict(),dict()
+    with open('../doc/resumenKML.csv') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=' ')
+        spamreader.__next__()
+        print('Nombre, longitud, latitud')
+        for row in spamreader:
+            nombre.append(row[0])
+            lon[nombre[-1]]=float(row[1])
+            lat[nombre[-1]]=float(row[2])
+            print(', '.join(row))
+    
+    distancias=dict()
+    for n1 in nombre:
+        for n2 in nombre:
+            if n1!=n2:
+                aux=Distance( lat[n1], lon[n1], lat[n2], lon[n2])
+                distancias[(n1,n2)]=aux
+                #print(n1,n2, Distance( lat[n1], lon[n1], lat[n2], lon[n2]) )
+                if (n1=='EsquinaSurPon' and n2=='EsquinaNorPon') or\
+                   (n1=='EsquinaNorPon' and n2=='CanalNorOri') or\
+                   (n1=='EsquinaSurPon' and n2=='CanalSurOri') or\
+                   (n1=='EsquinaNorPon' and n2=='CorreccionNor') or\
+                   (n1=='EsquinaSurPon' and n2=='CorreccionSur'):
+                       print('distancia entre',n1,'y',n2,':',aux)
+    
+    for n1 in nombre:
+        for n2 in nombre:
+            if n1!=n2:
+                assert distancias[(n1,n2)] == distancias[(n2,n1)]
+    
+    atm0 = latlon4Area0( lat['EsquinaSurPon'], lon['EsquinaSurPon'],
+                 lat['CanalSurOri'], lon['CanalSurOri'],
+                 lat['CanalNorOri'], lon['CanalNorOri'],
+                 lat['EsquinaNorPon'], lon['EsquinaNorPon'])
+    print('Area terreno medido 0', atm0)
+    ac0 = latlon4Area0( lat['EsquinaSurPon'], lon['EsquinaSurPon'],
+                 lat['CorreccionSur'], lon['CorreccionSur'],
+                 lat['CorreccionNor'], lon['CorreccionNor'],
+                 lat['EsquinaNorPon'], lon['EsquinaNorPon'])
+    print('Area corregida 0', ac0)
 
-distancias=dict()
-for n1 in nombre:
-    for n2 in nombre:
-        if n1!=n2:
-            aux=Distance( lat[n1], lon[n1], lat[n2], lon[n2])
-            distancias[(n1,n2)]=aux
-            #print(n1,n2, Distance( lat[n1], lon[n1], lat[n2], lon[n2]) )
-            if (n1=='EsquinaSurPon' and n2=='EsquinaNorPon') or\
-               (n1=='EsquinaNorPon' and n2=='CanalNorOri') or\
-               (n1=='EsquinaSurPon' and n2=='CanalSurOri') or\
-               (n1=='EsquinaNorPon' and n2=='CorreccionNor') or\
-               (n1=='EsquinaSurPon' and n2=='CorreccionSur'):
-                   print('distancia entre',n1,'y',n2,':',aux)
+    atm1 = latlon4Area1( lat['EsquinaSurPon'], lon['EsquinaSurPon'],
+                 lat['CanalSurOri'], lon['CanalSurOri'],
+                 lat['CanalNorOri'], lon['CanalNorOri'],
+                 lat['EsquinaNorPon'], lon['EsquinaNorPon'])
+    print('Area terreno medido 1', atm1)
+    ac1 = latlon4Area1( lat['EsquinaSurPon'], lon['EsquinaSurPon'],
+                 lat['CorreccionSur'], lon['CorreccionSur'],
+                 lat['CorreccionNor'], lon['CorreccionNor'],
+                 lat['EsquinaNorPon'], lon['EsquinaNorPon'])
+    print('Area corregida 1', ac1)
+    print('delta medido', atm1 - atm0)
+    print('delta corregida', ac1 - ac0)
 
-for n1 in nombre:
-    for n2 in nombre:
-        if n1!=n2:
-            assert distancias[(n1,n2)] == distancias[(n2,n1)]
-
-print('Area terreno medido', latlon4Area( lat['EsquinaSurPon'], lon['EsquinaSurPon'],
-             lat['CanalSurOri'], lon['CanalSurOri'],
-             lat['CanalNorOri'], lon['CanalNorOri'],
-             lat['EsquinaNorPon'], lon['EsquinaNorPon']))
-print('Area corregida', latlon4Area( lat['EsquinaSurPon'], lon['EsquinaSurPon'],
-             lat['CorreccionSur'], lon['CorreccionSur'],
-             lat['CorreccionNor'], lon['CorreccionNor'],
-             lat['EsquinaNorPon'], lon['EsquinaNorPon']))
+if __name__ == "__main__":
+    sys.exit(main())
