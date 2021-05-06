@@ -99,7 +99,7 @@ def latlon4Area1(alat,alon,blat,blon,clat,clon,dlat,dlon):
 
 def main():
     nombre,lat,lon=[],dict(),dict()
-    with open('../doc/resumenKML.csv') as csvfile:
+    with open('resumenKML.csv') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=' ')
         spamreader.__next__()
         print('Nombre, longitud, latitud')
